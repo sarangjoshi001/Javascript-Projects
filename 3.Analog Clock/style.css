@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-weight: bold;
+    /* color: #fff; */
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgba(17, 23, 49, 1);
+}
+.container{
+    position: relative;
+}
+
+.clock{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color:rgba(17, 23, 49, .95);;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+}
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+.clock::after{
+    content: '';
+    position: absolute;
+    width: 310px;
+    height: 310px;
+    border-radius: 50%;
+    background: conic-gradient(from var(--angle), transparent, green, yellow, red, yellow, green);
+    filter: blur(5px);
+    box-shadow: 0 2px 4px 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+    animation: 3s spin linear infinite;
+}
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+}
+.clock span{
+    position: absolute;
+    transform: rotate(calc(30deg * var(--i)));
+    inset: 12px;
+    text-align: center;
+    
+}
+.clock span b{
+    transform: rotate(calc(-30deg * var(--i)));
+    display: inline-block;
+    font-size: 20px;
+}
+.clock::before{
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #000000;
+    z-index: 2;
+}
+.hand{
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    align-content: flex-start;
+}
+.hand i{
+    position: absolute;
+    background-color: var(--clr);
+    width: 4px;
+    height: var(--h);
+    border-radius: 8px;
+}
