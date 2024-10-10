@@ -1,12 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather-App</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search"
+    />
+  </head>
+  <body>
+    <div class="card">
+      <div class="search">
+        <input
+          id="city-value"
+          type="text"
+          placeholder="enter city name"
+          spellcheck="false"
+        />
+        <button><span class="material-symbols-outlined"> search </span></button>
+      </div>
+      <div class="error">
+        <p>Invalid city name, please enter valid city name.</p>
+      </div>
+      <div class="weather">
+        <img class="weather-icon" src="" loading="lazy"/>
+        <h1 class="temp">--°c</h1>
+        <h2 class="city">Enter City</h2>
+        <div class="details">
+          <div class="col">
+            <img src="/assets/flood_990468.webp" alt="humidity" />
+            <div>
+              <p class="humidity">--%</p>
+              <p>Humidity</p>
+            </div>
+          </div>
+          <div class="col">
+            <img src="/assets/weather_16279006.webp" " alt="humidity">
+            <div>
+              <p class="wind">-- km/h</p>
+              <p>Wind Speed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
